@@ -329,3 +329,119 @@
 
     <script>
         // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('nav-toggled');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('nav-toggled')) {
+                    mobileMenu.classList.remove('nav-toggled');
+                }
+            });
+        });
+        
+        // Video carousel functionality
+        const carousel = document.querySelector('#video-carousel .flex');
+        const prevButton = document.getElementById('prev-video');
+        const nextButton = document.getElementById('next-video');
+        const indicators = document.querySelectorAll('.video-indicator');
+        let currentIndex = 0;
+        const itemWidth = 100; // 100% width per item
+        
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('bg-white/80');
+                    indicator.classList.remove('bg-white/30');
+                } else {
+                    indicator.classList.remove('bg-white/80');
+                    indicator.classList.add('bg-white/30');
+                }
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : indicators.length - 1;
+            updateCarousel();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < indicators.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+        
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex = parseInt(indicator.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+        
+        // Language toggle functionality
+        function toggleLanguage(lang) {
+            if (lang === 'en') {
+                // Show English content, hide Italian
+                document.querySelectorAll('.en-content').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.it-content').forEach(el => el.classList.add('hidden'));
+                // Update active button
+                document.getElementById('en-btn').classList.add('active');
+                document.getElementById('it-btn').classList.remove('active');
+                document.getElementById('mobile-en-btn').classList.add('active');
+                document.getElementById('mobile-it-btn').classList.remove('active');
+                // Update HTML lang attribute
+                document.documentElement.lang = 'en';
+            } else {
+                // Show Italian content, hide English
+                document.querySelectorAll('.it-content').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.en-content').forEach(el => el.classList.add('hidden'));
+                // Update active button
+                document.getElementById('it-btn').classList.add('active');
+                document.getElementById('en-btn').classList.remove('active');
+                document.getElementById('mobile-it-btn').classList.add('active');
+                document.getElementById('mobile-en-btn').classList.remove('active');
+                // Update HTML lang attribute
+                document.documentElement.lang = 'it';
+            }
+        }
+        
+        // Set up event listeners for language buttons
+        document.getElementById('en-btn').addEventListener('click', () => toggleLanguage('en'));
+        document.getElementById('it-btn').addEventListener('click', () => toggleLanguage('it'));
+        document.getElementById('mobile-en-btn').addEventListener('click', () => toggleLanguage('en'));
+        document.getElementById('mobile-it-btn').addEventListener('click', () => toggleLanguage('it'));
+        
+        // Intersection Observer for animations
+        const animateElements = document.querySelectorAll('.animate-fade-in-up');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

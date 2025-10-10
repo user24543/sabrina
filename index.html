@@ -135,7 +135,7 @@
                 <h2 class="text-xl md:text-2xl text-accent mb-6 en-content">Professional Saxophonist</h2>
                 <h2 class="text-xl md:text-2xl text-accent mb-6 it-content hidden">Sassofonista Professionista</h2>
                 <p class="text-lg mb-8 max-w-lg en-content">Bringing elegance and passion to every performance with over 15 years of professional experience in jazz, classical, and contemporary music.</p>
-                <p class="text-lg mb-8 max-w-lg it-content hidden">Portando eleganza e passione in ogni esibizione con oltre 15 anni di esperienza professionale nel jazz, musica classica e contemporanea.</p>
+                <p class="text-lg mb-8 max-w-lg it-content hidden">Portando eleganza e passione in ogni performance con oltre 15 anni di esperienza professionale nel jazz, musica classica e contemporanea.</p>
                 <div class="space-y-3">
                     <div class="flex items-center">
                         <i class="fas fa-phone-alt text-accent mr-3"></i>
@@ -172,19 +172,19 @@
                         <!-- Video 1 -->
                         <div class="w-full flex-shrink-0 px-4">
                             <div class="video-container rounded-lg overflow-hidden shadow-2xl">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/eou891dZiUw?si=H6WkmXqWSblZIB9I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <!-- Video 2 -->
                         <div class="w-full flex-shrink-0 px-4">
                             <div class="video-container rounded-lg overflow-hidden shadow-2xl">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/embed/IVFGBtEJ9Ss?si=prPw3pm0lZvOBOOE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                         <!-- Video 3 -->
                         <div class="w-full flex-shrink-0 px-4">
                             <div class="video-container rounded-lg overflow-hidden shadow-2xl">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe src="https://www.youtube.com/shorts/XQDdlacelPY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -336,19 +336,30 @@
             mobileMenu.classList.toggle('nav-toggled');
         });
         
-        // Smooth scrolling for anchor links
+        // Smooth scrolling for anchor links (prevent hash from appearing in URL)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
+
+                const href = this.getAttribute('href');
+
+                // if href is just "#" or empty, scroll to top
+                if (!href || href === '#') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
+                // close mobile menu if open
                 if (mobileMenu.classList.contains('nav-toggled')) {
                     mobileMenu.classList.remove('nav-toggled');
                 }
+
+                // ensure the hash never appears in the address bar
+                history.replaceState(null, '', window.location.pathname + window.location.search);
             });
         });
         

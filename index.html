@@ -1,0 +1,361 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabrina Ferrara | Professional Saxophonist</title>
+    <meta name="description" content="Professional saxophonist available for concerts, weddings, private lessons, and collaborations.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1a1a1a',
+                        secondary: '#4a1d96',
+                        accent: '#d4af37',
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1s ease-in',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/css">
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glow-on-hover {
+            transition: all 0.3s ease;
+        }
+        .glow-on-hover:hover {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .nav-toggled {
+            max-height: 500px !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body class="bg-primary text-white font-sans">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-primary/90 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-serif font-bold text-accent">Sabrina Ferrara</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#section-hero" class="hover:text-accent transition">Home</a>
+                    <a href="#section-videos" class="hover:text-accent transition">Performances</a>
+                    <a href="#section-services" class="hover:text-accent transition">Services</a>
+                    <a href="#footer" class="hover:text-accent transition">Contact</a>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out">
+                <div class="flex flex-col space-y-4 mt-4">
+                    <a href="#section-hero" class="hover:text-accent transition">Home</a>
+                    <a href="#section-videos" class="hover:text-accent transition">Performances</a>
+                    <a href="#section-services" class="hover:text-accent transition">Services</a>
+                    <a href="#footer" class="hover:text-accent transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="section-hero" class="min-h-screen flex items-center justify-center pt-20">
+        <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in-up">
+                <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4">Sabrina Ferrara</h1>
+                <h2 class="text-xl md:text-2xl text-accent mb-6">Professional Saxophonist</h2>
+                <p class="text-lg mb-8 max-w-lg">Bringing elegance and passion to every performance with over 15 years of professional experience in jazz, classical, and contemporary music.</p>
+                <div class="space-y-3">
+                    <div class="flex items-center">
+                        <i class="fas fa-phone-alt text-accent mr-3"></i>
+                        <span>+39 338 824 1820</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-accent mr-3"></i>
+                        <span>sabrinaferrara86@gmail.com</span>
+                    </div>
+                </div>
+                <div class="mt-8">
+                    <a href="#section-services" class="bg-accent text-primary px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition glow-on-hover inline-block">Explore Services</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center animate-fade-in-up">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-accent shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1601382270340-4a5d0a494090?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                         alt="Sabrina Ferrara playing saxophone" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Performances Section -->
+    <section id="section-videos" class="py-20 bg-gradient-to-b from-primary to-secondary/20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-12 animate-fade-in-up">Performance Highlights</h2>
+            
+            <div class="relative max-w-4xl mx-auto animate-fade-in-up">
+                <div id="video-carousel" class="overflow-hidden relative">
+                    <div class="flex transition-transform duration-300 ease-in-out">
+                        <!-- Video 1 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="video-container rounded-lg overflow-hidden shadow-2xl">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <!-- Video 2 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="video-container rounded-lg overflow-hidden shadow-2xl">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <!-- Video 3 -->
+                        <div class="w-full flex-shrink-0 px-4">
+                            <div class="video-container rounded-lg overflow-hidden shadow-2xl">
+                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="prev-video" class="absolute left-0 top-1/2 transform -translate-y-1/2 -ml-4 bg-accent text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-accent/90 transition">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button id="next-video" class="absolute right-0 top-1/2 transform -translate-y-1/2 -mr-4 bg-accent text-primary w-10 h-10 rounded-full flex items-center justify-center shadow-lg hover:bg-accent/90 transition">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                
+                <div class="flex justify-center mt-6 space-x-2">
+                    <button class="video-indicator w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition" data-index="0"></button>
+                    <button class="video-indicator w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition" data-index="1"></button>
+                    <button class="video-indicator w-3 h-3 rounded-full bg-white/30 hover:bg-white/50 transition" data-index="2"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="section-services" class="py-20">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-16 animate-fade-in-up">Services</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Concert Performance -->
+                <div class="service-card bg-secondary/10 p-8 rounded-xl border border-white/10 transition-all duration-300 hover:border-accent/30 animate-fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Concert Performances</h3>
+                    <p class="text-white/80">Professional solo or ensemble performances for events, festivals, and cultural gatherings.</p>
+                    <div class="mt-6">
+                        <a href="#footer" class="text-accent font-medium hover:underline">Book Now</a>
+                    </div>
+                </div>
+                
+                <!-- Weddings -->
+                <div class="service-card bg-secondary/10 p-8 rounded-xl border border-white/10 transition-all duration-300 hover:border-accent/30 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-ring"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Wedding Ceremonies</h3>
+                    <p class="text-white/80">Elegant musical accompaniment for your special day, from ceremony to reception.</p>
+                    <div class="mt-6">
+                        <a href="#footer" class="text-accent font-medium hover:underline">Inquire</a>
+                    </div>
+                </div>
+                
+                <!-- Private Lessons -->
+                <div class="service-card bg-secondary/10 p-8 rounded-xl border border-white/10 transition-all duration-300 hover:border-accent/30 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Private Lessons</h3>
+                    <p class="text-white/80">Personalized 1-to-1 saxophone instruction for all skill levels and ages.</p>
+                    <div class="mt-6">
+                        <a href="#footer" class="text-accent font-medium hover:underline">Learn More</a>
+                    </div>
+                </div>
+                
+                <!-- Collaborations -->
+                <div class="service-card bg-secondary/10 p-8 rounded-xl border border-white/10 transition-all duration-300 hover:border-accent/30 animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="text-accent text-4xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Collaborations</h3>
+                    <p class="text-white/80">Creative partnerships for recordings, special projects, and unique performances.</p>
+                    <div class="mt-6">
+                        <a href="#footer" class="text-accent font-medium hover:underline">Get in Touch</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-secondary py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-2xl font-serif font-bold text-accent mb-4">Sabrina Ferrara</h3>
+                    <p class="text-white/80 mb-2">Professional Saxophonist</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="mb-6 md:mb-0">
+                    <h4 class="text-lg font-bold mb-3">Contact</h4>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-accent mr-3"></i>
+                            <span>+39 338 824 1820</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-accent mr-3"></i>
+                            <span>sabrinaferrara86@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-3">Quick Links</h4>
+                    <div class="flex flex-col space-y-2">
+                        <a href="#section-hero" class="hover:text-accent transition">Home</a>
+                        <a href="#section-videos" class="hover:text-accent transition">Performances</a>
+                        <a href="#section-services" class="hover:text-accent transition">Services</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/60">
+                <p>&copy; 2023 Sabrina Ferrara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('nav-toggled');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (mobileMenu.classList.contains('nav-toggled')) {
+                    mobileMenu.classList.remove('nav-toggled');
+                }
+            });
+        });
+        
+        // Video carousel functionality
+        const carousel = document.querySelector('#video-carousel .flex');
+        const prevButton = document.getElementById('prev-video');
+        const nextButton = document.getElementById('next-video');
+        const indicators = document.querySelectorAll('.video-indicator');
+        let currentIndex = 0;
+        const itemWidth = 100; // 100% width per item
+        
+        function updateCarousel() {
+            carousel.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+            
+            // Update indicators
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('bg-white/80');
+                    indicator.classList.remove('bg-white/30');
+                } else {
+                    indicator.classList.remove('bg-white/80');
+                    indicator.classList.add('bg-white/30');
+                }
+            });
+        }
+        
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : indicators.length - 1;
+            updateCarousel();
+        });
+        
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex < indicators.length - 1) ? currentIndex + 1 : 0;
+            updateCarousel();
+        });
+        
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                currentIndex = parseInt(indicator.getAttribute('data-index'));
+                updateCarousel();
+            });
+        });
+        
+        // Intersection Observer for animations
+        const animateElements = document.querySelectorAll('.animate-fade-in-up');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animateElements.forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

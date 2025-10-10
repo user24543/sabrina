@@ -68,6 +68,26 @@
             max-height: 500px !important;
             opacity: 1 !important;
         }
+        .language-toggle {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2px;
+            display: inline-flex;
+        }
+        .language-toggle button {
+            padding: 4px 12px;
+            border-radius: 16px;
+            border: none;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .language-toggle button.active {
+            background: #d4af37;
+            color: #1a1a1a;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="bg-primary text-white font-sans">
@@ -76,15 +96,25 @@
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <a href="#" class="text-2xl font-serif font-bold text-accent">Sabrina Ferrara</a>
-                <div class="hidden md:flex space-x-8">
+                <div class="hidden md:flex items-center space-x-8">
                     <a href="#section-hero" class="hover:text-accent transition">Home</a>
                     <a href="#section-videos" class="hover:text-accent transition">Performances</a>
                     <a href="#section-services" class="hover:text-accent transition">Services</a>
                     <a href="#footer" class="hover:text-accent transition">Contact</a>
+                    <div class="language-toggle ml-4">
+                        <button id="en-btn" class="active">EN</button>
+                        <button id="it-btn">IT</button>
+                    </div>
                 </div>
-                <button id="mobile-menu-button" class="md:hidden text-accent focus:outline-none">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                <div class="md:hidden flex items-center">
+                    <div class="language-toggle mr-4">
+                        <button id="mobile-en-btn" class="active">EN</button>
+                        <button id="mobile-it-btn">IT</button>
+                    </div>
+                    <button id="mobile-menu-button" class="text-accent focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
             <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden opacity-0 transition-all duration-300 ease-in-out">
                 <div class="flex flex-col space-y-4 mt-4">
@@ -102,8 +132,10 @@
         <div class="container mx-auto px-6 py-16 md:py-24 flex flex-col md:flex-row items-center">
             <div class="md:w-1/2 mb-12 md:mb-0 animate-fade-in-up">
                 <h1 class="text-4xl md:text-6xl font-serif font-bold mb-4">Sabrina Ferrara</h1>
-                <h2 class="text-xl md:text-2xl text-accent mb-6">Professional Saxophonist</h2>
-                <p class="text-lg mb-8 max-w-lg">Bringing elegance and passion to every performance with over 15 years of professional experience in jazz, classical, and contemporary music.</p>
+                <h2 class="text-xl md:text-2xl text-accent mb-6 en-content">Professional Saxophonist</h2>
+                <h2 class="text-xl md:text-2xl text-accent mb-6 it-content hidden">Sassofonista Professionista</h2>
+                <p class="text-lg mb-8 max-w-lg en-content">Bringing elegance and passion to every performance with over 15 years of professional experience in jazz, classical, and contemporary music.</p>
+                <p class="text-lg mb-8 max-w-lg it-content hidden">Portando eleganza e passione in ogni esibizione con oltre 15 anni di esperienza professionale nel jazz, musica classica e contemporanea.</p>
                 <div class="space-y-3">
                     <div class="flex items-center">
                         <i class="fas fa-phone-alt text-accent mr-3"></i>
@@ -115,7 +147,8 @@
                     </div>
                 </div>
                 <div class="mt-8">
-                    <a href="#section-services" class="bg-accent text-primary px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition glow-on-hover inline-block">Explore Services</a>
+                    <a href="#section-services" class="bg-accent text-primary px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition glow-on-hover inline-block en-content">Explore Services</a>
+                    <a href="#section-services" class="bg-accent text-primary px-6 py-3 rounded-full font-medium hover:bg-accent/90 transition glow-on-hover inline-block it-content hidden">Scopri Servizi</a>
                 </div>
             </div>
             <div class="md:w-1/2 flex justify-center animate-fade-in-up">
@@ -131,7 +164,8 @@
     <!-- Video Performances Section -->
     <section id="section-videos" class="py-20 bg-gradient-to-b from-primary to-secondary/20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-12 animate-fade-in-up">Performance Highlights</h2>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-12 animate-fade-in-up en-content">Performance Highlights</h2>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-12 animate-fade-in-up it-content hidden">Esibizioni</h2>
             
             <div class="relative max-w-4xl mx-auto animate-fade-in-up">
                 <div id="video-carousel" class="overflow-hidden relative">
@@ -176,7 +210,8 @@
     <!-- Services Section -->
     <section id="section-services" class="py-20">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-16 animate-fade-in-up">Services</h2>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-16 animate-fade-in-up en-content">Services</h2>
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-center mb-16 animate-fade-in-up it-content hidden">Servizi</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Concert Performance -->
@@ -184,10 +219,13 @@
                     <div class="text-accent text-4xl mb-4">
                         <i class="fas fa-music"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Concert Performances</h3>
-                    <p class="text-white/80">Professional solo or ensemble performances for events, festivals, and cultural gatherings.</p>
+                    <h3 class="text-xl font-bold mb-3 en-content">Concert Performances</h3>
+                    <h3 class="text-xl font-bold mb-3 it-content hidden">Concerti</h3>
+                    <p class="text-white/80 en-content">Professional solo or ensemble performances for events, festivals, and cultural gatherings.</p>
+                    <p class="text-white/80 it-content hidden">Esibizioni professionali soliste o d'insieme per eventi, festival e incontri culturali.</p>
                     <div class="mt-6">
-                        <a href="#footer" class="text-accent font-medium hover:underline">Book Now</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline en-content">Book Now</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline it-content hidden">Prenota Ora</a>
                     </div>
                 </div>
                 
@@ -196,10 +234,13 @@
                     <div class="text-accent text-4xl mb-4">
                         <i class="fas fa-ring"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Wedding Ceremonies</h3>
-                    <p class="text-white/80">Elegant musical accompaniment for your special day, from ceremony to reception.</p>
+                    <h3 class="text-xl font-bold mb-3 en-content">Wedding Ceremonies</h3>
+                    <h3 class="text-xl font-bold mb-3 it-content hidden">Matrimoni</h3>
+                    <p class="text-white/80 en-content">Elegant musical accompaniment for your special day, from ceremony to reception.</p>
+                    <p class="text-white/80 it-content hidden">Accompagnamento musicale elegante per il tuo giorno speciale, dalla cerimonia al ricevimento.</p>
                     <div class="mt-6">
-                        <a href="#footer" class="text-accent font-medium hover:underline">Inquire</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline en-content">Inquire</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline it-content hidden">Informazioni</a>
                     </div>
                 </div>
                 
@@ -208,10 +249,13 @@
                     <div class="text-accent text-4xl mb-4">
                         <i class="fas fa-user-graduate"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Private Lessons</h3>
-                    <p class="text-white/80">Personalized 1-to-1 saxophone instruction for all skill levels and ages.</p>
+                    <h3 class="text-xl font-bold mb-3 en-content">Private Lessons</h3>
+                    <h3 class="text-xl font-bold mb-3 it-content hidden">Lezioni Private</h3>
+                    <p class="text-white/80 en-content">Personalized 1-to-1 saxophone instruction for all skill levels and ages.</p>
+                    <p class="text-white/80 it-content hidden">Lezioni personalizzate di sassofono per tutti i livelli e tutte le età.</p>
                     <div class="mt-6">
-                        <a href="#footer" class="text-accent font-medium hover:underline">Learn More</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline en-content">Learn More</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline it-content hidden">Scopri di Più</a>
                     </div>
                 </div>
                 
@@ -220,10 +264,13 @@
                     <div class="text-accent text-4xl mb-4">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3 class="text-xl font-bold mb-3">Collaborations</h3>
-                    <p class="text-white/80">Creative partnerships for recordings, special projects, and unique performances.</p>
+                    <h3 class="text-xl font-bold mb-3 en-content">Collaborations</h3>
+                    <h3 class="text-xl font-bold mb-3 it-content hidden">Collaborazioni</h3>
+                    <p class="text-white/80 en-content">Creative partnerships for recordings, special projects, and unique performances.</p>
+                    <p class="text-white/80 it-content hidden">Collaborazioni creative per registrazioni, progetti speciali e performance uniche.</p>
                     <div class="mt-6">
-                        <a href="#footer" class="text-accent font-medium hover:underline">Get in Touch</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline en-content">Get in Touch</a>
+                        <a href="#footer" class="text-accent font-medium hover:underline it-content hidden">Contattami</a>
                     </div>
                 </div>
             </div>
@@ -236,7 +283,8 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <h3 class="text-2xl font-serif font-bold text-accent mb-4">Sabrina Ferrara</h3>
-                    <p class="text-white/80 mb-2">Professional Saxophonist</p>
+                    <p class="text-white/80 mb-2 en-content">Professional Saxophonist</p>
+                    <p class="text-white/80 mb-2 it-content hidden">Sassofonista Professionista</p>
                     <div class="flex space-x-4 mt-4">
                         <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white hover:text-accent transition"><i class="fab fa-instagram"></i></a>
@@ -245,7 +293,8 @@
                 </div>
                 
                 <div class="mb-6 md:mb-0">
-                    <h4 class="text-lg font-bold mb-3">Contact</h4>
+                    <h4 class="text-lg font-bold mb-3 en-content">Contact</h4>
+                    <h4 class="text-lg font-bold mb-3 it-content hidden">Contatti</h4>
                     <div class="space-y-2">
                         <div class="flex items-center">
                             <i class="fas fa-phone-alt text-accent mr-3"></i>
@@ -259,103 +308,25 @@
                 </div>
                 
                 <div>
-                    <h4 class="text-lg font-bold mb-3">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-3 en-content">Quick Links</h4>
+                    <h4 class="text-lg font-bold mb-3 it-content hidden">Link Veloci</h4>
                     <div class="flex flex-col space-y-2">
-                        <a href="#section-hero" class="hover:text-accent transition">Home</a>
-                        <a href="#section-videos" class="hover:text-accent transition">Performances</a>
-                        <a href="#section-services" class="hover:text-accent transition">Services</a>
+                        <a href="#section-hero" class="hover:text-accent transition en-content">Home</a>
+                        <a href="#section-hero" class="hover:text-accent transition it-content hidden">Home</a>
+                        <a href="#section-videos" class="hover:text-accent transition en-content">Performances</a>
+                        <a href="#section-videos" class="hover:text-accent transition it-content hidden">Esibizioni</a>
+                        <a href="#section-services" class="hover:text-accent transition en-content">Services</a>
+                        <a href="#section-services" class="hover:text-accent transition it-content hidden">Servizi</a>
                     </div>
                 </div>
             </div>
             
             <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/60">
-                <p>&copy; 2023 Sabrina Ferrara. All rights reserved.</p>
+                <p class="en-content">&copy; 2023 Sabrina Ferrara. All rights reserved.</p>
+                <p class="it-content hidden">&copy; 2023 Sabrina Ferrara. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('nav-toggled');
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Close mobile menu if open
-                if (mobileMenu.classList.contains('nav-toggled')) {
-                    mobileMenu.classList.remove('nav-toggled');
-                }
-            });
-        });
-        
-        // Video carousel functionality
-        const carousel = document.querySelector('#video-carousel .flex');
-        const prevButton = document.getElementById('prev-video');
-        const nextButton = document.getElementById('next-video');
-        const indicators = document.querySelectorAll('.video-indicator');
-        let currentIndex = 0;
-        const itemWidth = 100; // 100% width per item
-        
-        function updateCarousel() {
-            carousel.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-            
-            // Update indicators
-            indicators.forEach((indicator, index) => {
-                if (index === currentIndex) {
-                    indicator.classList.add('bg-white/80');
-                    indicator.classList.remove('bg-white/30');
-                } else {
-                    indicator.classList.remove('bg-white/80');
-                    indicator.classList.add('bg-white/30');
-                }
-            });
-        }
-        
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex > 0) ? currentIndex - 1 : indicators.length - 1;
-            updateCarousel();
-        });
-        
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex < indicators.length - 1) ? currentIndex + 1 : 0;
-            updateCarousel();
-        });
-        
-        indicators.forEach(indicator => {
-            indicator.addEventListener('click', () => {
-                currentIndex = parseInt(indicator.getAttribute('data-index'));
-                updateCarousel();
-            });
-        });
-        
-        // Intersection Observer for animations
-        const animateElements = document.querySelectorAll('.animate-fade-in-up');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in-up');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-        
-        animateElements.forEach(element => {
-            observer.observe(element);
-        });
-    </script>
-</body>
-</html>
